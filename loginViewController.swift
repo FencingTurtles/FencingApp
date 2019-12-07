@@ -26,5 +26,18 @@ class loginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.resignFirstResponder()
         return true
     }
-
+    
+    
+    @IBAction func UserLoginButton(_ sender: Any) {
+        let username = usernameTextField.text
+        let password = passwordTextField.text
+        if (username == "" || password == "") {
+            let alertController = UIAlertController(title: "Error", message:"Please fill in both fields.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        //should send get request here -- if successful, segue to next screen (menuViewController)
+    }
 }
+
